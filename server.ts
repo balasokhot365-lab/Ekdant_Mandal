@@ -763,27 +763,65 @@ app.get("/api/reports/export/expenses", authenticateUser, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
 // Vite Middleware & SPA serving
 async function startServer() {
   const config = getMandalConfig();
-  if (process.env.NODE_ENV !== "production") {
+
+  const isProduction = process.env.NODE_ENV === "production";
+
+  if (!isProduction) {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        host: "0.0.0.0",
+        allowedHosts: [
+          "ekdant-mandal-2026-3.onrender.com",
+        ],
+      },
       appType: "spa",
     });
+
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
+
     app.use(express.static(distPath));
+
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`🔥 ${config.mandalName} (Mandal ID: ${config.mandalId}) System running on http://0.0.0.0:${PORT}`);
+  const port = Number(process.env.PORT) || 3000;
+
+  app.listen(port, "0.0.0.0", () => {
+    console.log(
+      `🔥 ${config.mandalName} (Mandal ID: ${config.mandalId}) System running on http://0.0.0.0:${port}`
+    );
   });
 }
 
 startServer();
+// Vite Middleware & SPA serving
+// async function startServer() {
+//   const config = getMandalConfig();
+//   if (process.env.NODE_ENV !== "production") {
+//     const vite = await createViteServer({
+//       server: { middlewareMode: true },
+//       appType: "spa",
+//     });
+//     app.use(vite.middlewares);
+//   } else {
+//     const distPath = path.join(process.cwd(), "dist");
+//     app.use(express.static(distPath));
+//     app.get("*", (req, res) => {
+//       res.sendFile(path.join(distPath, "index.html"));
+//     });
+//   }
+
+//   app.listen(PORT, "0.0.0.0", () => {
+//     console.log(`🔥 ${config.mandalName} (Mandal ID: ${config.mandalId}) System running on http://0.0.0.0:${PORT}`);
+//   });
+// }
+
+// startServer();
