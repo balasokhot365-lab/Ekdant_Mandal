@@ -15,10 +15,14 @@ export default defineConfig(() => {
 
     server: {
       host: "0.0.0.0",
+      port: 3000,
+
       hmr: process.env.DISABLE_HMR !== "true",
       watch: process.env.DISABLE_HMR === "true" ? null : {},
 
-      allowedHosts: ["shree-ekdant-mandel-2026-1.onrender.com"],
+      allowedHosts: [
+        "ekdant-mandal.onrender.com",
+      ],
     },
   };
 });
