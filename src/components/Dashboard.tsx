@@ -105,8 +105,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ setActiveTab }) => {
             <div className="relative w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full p-0.5 sm:p-1 bg-gradient-to-tr from-amber-300 via-yellow-400 to-amber-600 shadow-lg border-2 border-amber-300/80 shrink-0 overflow-hidden flex items-center justify-center">
               <img
                 src={
-                  new URL("../assets/images/mandal-logo.jpg", import.meta.url)
-                    .href
+                  new URL("../assets/images/ganpati.png", import.meta.url).href
                 }
                 alt="Shree Ganesh Mitra Mandal Shirasawadi Logo"
                 referrerPolicy="no-referrer"
