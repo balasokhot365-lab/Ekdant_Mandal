@@ -153,7 +153,7 @@ export const LoginPage: React.FC = () => {
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-300 via-yellow-400 to-amber-600 shadow-lg border-2 border-amber-300/80 overflow-hidden flex items-center justify-center">
                   <img
                     src={
-                      new URL("../assets/images/ganpati.jpg", import.meta.url)
+                      new URL("../assets/images/ganpati.png", import.meta.url)
                         .href
                     }
                     alt="Lord Ganesha"
