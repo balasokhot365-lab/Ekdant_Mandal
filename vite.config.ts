@@ -21,7 +21,7 @@ export default defineConfig(() => {
       watch: process.env.DISABLE_HMR === "true" ? null : {},
 
       allowedHosts: [
-        "ekdant-mandal.onrender.com",
+        "https://ekdant-mandal-2026-3.onrender.com",
       ],
     },
   };
