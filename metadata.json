@@ -1,0 +1,6 @@
+{
+  "name": "Ekdant Mitra Mandal Uchgaon- Ganpati Management",
+  "description": "Real-time Ganpati Vargani receipt generator, member performance tracker, expense manager with budget protection, and Marathi/English billing system for Ekdant Mitra Mandal Uchgaon.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
